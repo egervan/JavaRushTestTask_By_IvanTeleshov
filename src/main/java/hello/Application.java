@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import util.Crud;
 import util.HibernateUtil;
 
 import java.util.ArrayList;
@@ -34,7 +35,10 @@ public class Application {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<User> queryString = new ArrayList<User>(session.createQuery("from User").list());
+        session.close();
         System.out.println(queryString.toString());
+
+        Crud.create(new User("Ivan", 28, false));
 
     }
 }

@@ -15,6 +15,15 @@ public class User {
     private boolean isAdmin;
     private Timestamp createDate;
 
+    public User() {
+    }
+
+    public User(String name, int age, boolean isAdmin) {
+        this.name = name;
+        this.age = age;
+        this.isAdmin = isAdmin;
+    }
+
     @Id
     @Column(name = "id")
     public int getId() {
