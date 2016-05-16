@@ -4,24 +4,15 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by nz on 16.05.16.
+ * Created by Jager on 16.05.2016.
  */
 @Entity
-@Table(name = "user", schema = "test", catalog = "")
+@Table(name = "user", schema = "test")
 public class User {
     private int id;
     private String name;
     private int age;
     private boolean isAdmin;
-
-    public boolean getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
-
     private Timestamp createDate;
 
     @Id
@@ -79,13 +70,13 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        User user = (User) o;
+        User that = (User) o;
 
-        if (id != user.id) return false;
-        if (age != user.age) return false;
-        if (isAdmin != user.isAdmin) return false;
-        if (name != null ? !name.equals(user.name) : user.name != null) return false;
-        if (createDate != null ? !createDate.equals(user.createDate) : user.createDate != null) return false;
+        if (id != that.id) return false;
+        if (age != that.age) return false;
+        if (isAdmin != that.isAdmin) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (createDate != null ? !createDate.equals(that.createDate) : that.createDate != null) return false;
 
         return true;
     }
