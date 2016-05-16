@@ -1,5 +1,6 @@
 package hello;
 
+import org.hibernate.Hibernate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -27,5 +28,6 @@ public class Application {
                 new AnnotationConfigApplicationContext(Application.class);
         MessagePrinter printer = context.getBean(MessagePrinter.class);
         printer.printMessage();
+
     }
 }
