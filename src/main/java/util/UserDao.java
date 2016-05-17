@@ -15,6 +15,11 @@ import java.util.List;
  * Created by nz on 17.05.16.
  */
 public class UserDao extends HibernateDaoSupport implements UserDaoInterface{
+
+    public UserDao()
+    {
+
+    }
     public void addUser(User user)
     {
         Transaction transaction = null;
