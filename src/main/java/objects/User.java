@@ -99,4 +99,15 @@ public class User {
         result = 31 * result + (createDate != null ? createDate.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", isAdmin=" + isAdmin +
+                ", createDate=" + createDate +
+                '}';
+    }
 }

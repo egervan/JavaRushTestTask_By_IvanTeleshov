@@ -5,8 +5,8 @@ import org.hibernate.Session;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import util.Crud;
 import util.HibernateUtil;
+import util.UserDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +33,13 @@ public class Application {
         MessagePrinter printer = context.getBean(MessagePrinter.class);
         printer.printMessage();*/
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        List<User> queryString = new ArrayList<User>(session.createQuery("from User").list());
-        session.close();
-        System.out.println(queryString.toString());
-
-        Crud.create(new User("Ivan", 28, false));
+        String result = HibernateUtil.readAll().toString();
+        System.out.println(result);
+        System.out.println(UserDao.getUserById(1));
+        /*User user = new User();
+        user.setId(0);
+        HibernateUtil.delete("name", "Alexei");
+        System.out.println("Finish");*/
 
     }
 }

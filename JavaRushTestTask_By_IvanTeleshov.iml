@@ -23,6 +23,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="7a7e50fd-317c-4f1d-9e0a-fd666f0080e8" />
+          <unit-entry name="hibernate.cfg.xml" value="867a3d9b-99ab-4777-99e3-4d4174a167b7" />
           <unit-entry name="util:SessionFactory.xml" value="7a7e50fd-317c-4f1d-9e0a-fd666f0080e8" />
         </datasource-map>
         <naming-strategy-map>
@@ -32,7 +33,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
