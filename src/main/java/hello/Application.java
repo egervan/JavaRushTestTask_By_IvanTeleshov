@@ -35,7 +35,7 @@ public class Application {
 
         String result = HibernateUtil.readAll().toString();
         System.out.println(result);
-        System.out.println(UserDao.getUserById(1));
+        System.out.println(new UserDao().getUserById(1));
         /*User user = new User();
         user.setId(0);
         HibernateUtil.delete("name", "Alexei");

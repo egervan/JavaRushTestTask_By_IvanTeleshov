@@ -2,16 +2,20 @@ package util;
 
 import objects.User;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by nz on 17.05.16.
  */
-public class UserDao {
-    public static void addUser(User user)
+public class UserDao extends HibernateDaoSupport implements UserDaoInterface{
+    public void addUser(User user)
     {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession())
@@ -29,7 +33,7 @@ public class UserDao {
         }
     }
 
-    public static void deleteUser(int id)
+    public void deleteUser(int id)
     {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession())
@@ -48,7 +52,7 @@ public class UserDao {
         }
     }
 
-    public static void updateUser(User user)
+    public void updateUser(User user)
     {
         int id = user.getId();
         Transaction transaction = null;
@@ -69,7 +73,7 @@ public class UserDao {
         }
     }
 
-    public static List<User> getAllUsers()
+    public List<User> getAllUsers()
     {
         List<User> allUsers = new ArrayList<>();
         try (Session session = HibernateUtil.getSessionFactory().openSession())
@@ -83,16 +87,24 @@ public class UserDao {
         return allUsers;
     }
 
-    public static User getUserById(int id)
+    public User getUserById(int id)
     {
         try (Session session = HibernateUtil.getSessionFactory().openSession())
         {
-            return (User) session.createQuery("from User where id = " + id).uniqueResult();
+            return (User) session.createQuery("from User where id = :id").setInteger("id", id).uniqueResult();
         }
         catch (RuntimeException e)
         {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    protected HibernateTemplate createHibernateTemplate(SessionFactory sessionFactory) {
+        HibernateTemplate result = super.createHibernateTemplate(sessionFactory);
+        result.setAllowCreate(false);
+        return result;
+
     }
 }
