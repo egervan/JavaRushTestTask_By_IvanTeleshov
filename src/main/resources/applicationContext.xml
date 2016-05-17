@@ -11,7 +11,7 @@
 
     <aop:config>
         <aop:pointcut id="myPointcut"
-                      expression="execution(* java.*.*(..))" />
+                      expression="execution(* util.*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
     </aop:config>
 

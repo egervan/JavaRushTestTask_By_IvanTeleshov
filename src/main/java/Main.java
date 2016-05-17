@@ -1,5 +1,6 @@
 import objects.User;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import util.UserDaoInterface;
 
 /**
@@ -9,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         /*ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] { "applicationContext.xml" }, true);*/
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("src/main/resources/applicationContext.xml");
         UserDaoInterface userDao = (UserDaoInterface) context.getBean("dataDao");
         User data1 = new User("Alex", 20, false);
         userDao.addUser(data1);
