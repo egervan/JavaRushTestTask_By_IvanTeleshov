@@ -10,11 +10,11 @@
     <context:annotation-config />
 
 
-    <aop:config>
+    <!--<aop:config>
         <aop:pointcut id="myPointcut"
                       expression="execution(* util.UserDaoImpl*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
-    </aop:config>
+    </aop:config>-->
 
 
     <tx:advice id="txAdvice" transaction-manager="transactionManager">

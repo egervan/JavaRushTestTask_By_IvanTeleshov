@@ -15,6 +15,8 @@ public class Main {
         User user = userDao.getUserById(6);
         user.setAge(48);
         userDao.updateUser(user);
+        User data1 = new User("Alex", 20, false);
+        userDao.addUser(data1);
                 /*while(userDao.getAllUsers().size() > 7)
         {
             userDao.deleteUser(userDao.getAllUsers().size()-1);
