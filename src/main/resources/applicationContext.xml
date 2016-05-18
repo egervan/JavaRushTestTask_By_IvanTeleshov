@@ -69,8 +69,8 @@
         </property>-->
     </bean>
 
-   <!-- <bean id="dataDao" class="util.UserDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>-->
+    <bean id="userDao" class="util.UserDaoImpl">
+       <!-- <property name="sessionFactory" ref="sessionFactory" />-->
+    </bean>
 
 </beans>
