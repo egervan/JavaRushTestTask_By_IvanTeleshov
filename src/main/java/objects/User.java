@@ -1,5 +1,6 @@
 package objects;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -69,6 +70,7 @@ public class User {
     }
 
     @Basic
+    @CreationTimestamp
     @Column(name = "createDate")
     public Timestamp getCreateDate() {
         return createDate;
