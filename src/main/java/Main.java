@@ -1,7 +1,6 @@
 import objects.User;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import util.UserDaoInterface;
+import util.UserDao;
 
 /**
  * Created by Jager on 18.05.2016.
@@ -11,7 +10,7 @@ public class Main {
         /*ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] { "applicationContext.xml" }, true);*/
         FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("src/main/resources/applicationContext.xml");
-        UserDaoInterface userDao = (UserDaoInterface) context.getBean("dataDao");
+        UserDao userDao = (UserDao) context.getBean("dataDao");
         User data1 = new User("Alex", 20, false);
         userDao.addUser(data1);
         User data2 = new User("Bob", 21, false);
