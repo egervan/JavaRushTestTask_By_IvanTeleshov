@@ -20,14 +20,13 @@ import java.util.Map;
 @Controller
 public class UserController {
 
- //   @Autowired
+    @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView allUsers(Model model) {
-        ModelAndView modelAndView = new ModelAndView("all-users");
-        modelAndView.addObject("users", userService.getAllUsers());
-        return modelAndView;
+    @RequestMapping(value = "/home.html", method = RequestMethod.GET)
+    public String allUsers(Model model) {
+        model.addAttribute("users", userService.getAllUsers());
+        return "WEB-INF/jsp/home.jsp";
     }
 
     //For add and update user both

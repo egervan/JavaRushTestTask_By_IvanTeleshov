@@ -1,5 +1,7 @@
 import objects.User;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+import service.UserService;
+import service.UserServiceImpl;
 import util.UserDao;
 
 /**
@@ -9,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         /*ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] { "applicationContext.xml" }, true);*/
-        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("src/main/resources/applicationContext.xml");
+        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/action-servlet.xml");
         UserDao userDao = (UserDao) context.getBean("userDao");
 
         User user = userDao.getUserById(6);
@@ -17,6 +19,10 @@ public class Main {
         userDao.updateUser(user);
         User data1 = new User("Alex", 20, false);
         userDao.addUser(data1);
+
+        //Надо использовать бины, а не на прямую объявлять классы
+        UserService userService = (UserService) context.getBean("userService");
+        userService.addUser(new User("Kirill", 20, false));
                 /*while(userDao.getAllUsers().size() > 7)
         {
             userDao.deleteUser(userDao.getAllUsers().size()-1);

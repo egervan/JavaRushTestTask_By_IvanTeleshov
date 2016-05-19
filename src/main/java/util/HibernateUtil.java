@@ -5,6 +5,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  * Created by nz on 16.05.16.
  */
 public class HibernateUtil {
-    private static final SessionFactory sessionFactory;
+    public static final SessionFactory sessionFactory;
     static
     {
         try
