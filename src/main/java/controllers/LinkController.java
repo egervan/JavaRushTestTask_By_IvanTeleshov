@@ -15,6 +15,14 @@ public class LinkController {
         return new ModelAndView("home");
     }
 
+    @RequestMapping(value="/hello")
+    public ModelAndView printWelcome(String name) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("hello");
+        mav.addObject("message", "Hello, " + ((name != null) ? name : "World!"));
+        return mav;
+    }
+
     @RequestMapping(value="/index")
     public ModelAndView indexPage() {
         return new ModelAndView("home");

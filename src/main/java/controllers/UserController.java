@@ -22,14 +22,14 @@ import java.util.Map;
 @Controller
 public class UserController {
 
+    @Autowired
     private final UserService userService;
 
-    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView allUsers(Model model) {
         ModelAndView modelAndView = new ModelAndView("all-users");
         modelAndView.addObject("users", userService.getAllUsers());

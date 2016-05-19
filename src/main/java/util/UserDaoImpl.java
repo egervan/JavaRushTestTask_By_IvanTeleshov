@@ -2,7 +2,10 @@ package util;
 
 import objects.User;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 //import org.springframework.orm.hibernate3.HibernateTemplate;
 //import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -13,7 +16,11 @@ import java.util.List;
 /**
  * Created by nz on 17.05.16.
  */
+@Repository
 public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
+
+    @Autowired
+    private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
     public UserDaoImpl()
     {
@@ -22,7 +29,7 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
     public void addUser(User user)
     {
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession())
+        try (Session session = sessionFactory.openSession())
         {
             session.beginTransaction();
             session.save(user);
@@ -40,10 +47,10 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
     public void deleteUser(int id)
     {
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession())
+        try (Session session = sessionFactory.openSession())
         {
             transaction = session.beginTransaction();
-            User user = session.load(User.class, new Integer(id));
+            User user = session.load(User.class, id);
             session.delete(user);
             session.getTransaction().commit();
         }
@@ -61,7 +68,7 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
         int id = user.getId();
         Transaction transaction = null;
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession())
+        try (Session session = sessionFactory.openSession())
         {
             transaction = session.beginTransaction();
           //  session.load(User.class, new Integer(id));
@@ -80,7 +87,7 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
     public List<User> getAllUsers()
     {
         List<User> allUsers = new ArrayList<>();
-        try (Session session = HibernateUtil.getSessionFactory().openSession())
+        try (Session session = sessionFactory.openSession())
         {
             allUsers = session.createQuery("from User").list();
         }
@@ -93,7 +100,7 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
 
     public User getUserById(int id)
     {
-        try (Session session = HibernateUtil.getSessionFactory().openSession())
+        try (Session session = sessionFactory.openSession())
         {
             return (User) session.createQuery("from User where id = :id").setInteger("id", id).uniqueResult();
         }
