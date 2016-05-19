@@ -29,6 +29,15 @@ public class UserController {
         return "WEB-INF/jsp/home.jsp";
     }
 
+    @RequestMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") int id){
+        ModelAndView modelAndView = new ModelAndView("home");
+        userService.deleteUser(id);
+        String message = String.format("User %d was successfully deleted.", id);
+        modelAndView.addObject("message", message);
+        return "WEB-INF/jsp/home.jsp";
+    }
+
     //For add and update user both
     @RequestMapping(value= "/add", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("user") User user)
@@ -47,15 +56,6 @@ public class UserController {
 
         return modelAndView;
 
-    }
-
-    @RequestMapping("/delete/{id}")
-    public ModelAndView deleteUser(@PathVariable("id") int id){
-        ModelAndView modelAndView = new ModelAndView("home");
-        userService.deleteUser(id);
-        String message = String.format("User %d was successfully deleted.", id);
-        modelAndView.addObject("message", message);
-        return modelAndView;
     }
 
     @RequestMapping("/update/{id}")
