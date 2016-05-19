@@ -1,6 +1,7 @@
 package service;
 
 import objects.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

@@ -35,12 +35,7 @@ public class MyServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html");
 
-        String varTextA = "Hello World!";
-        request.setAttribute("textA", varTextA);
-        String varTextB = "It JSP.";
-        request.setAttribute("textB", varTextB);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/start.jsp");
         dispatcher.forward(request, response);
     }
 }
