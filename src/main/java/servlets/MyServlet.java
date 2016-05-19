@@ -1,3 +1,4 @@
+/*
 package servlets;
 
 import javax.servlet.RequestDispatcher;
@@ -9,9 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+*/
 /**
  * Created by Jager on 15.05.2016.
- */
+ *//*
+
 @WebServlet("/s")
 public class MyServlet extends HttpServlet {
 
@@ -21,14 +24,16 @@ public class MyServlet extends HttpServlet {
         super.doPost(request, response);
     }
 
-    /*@Override
+    */
+/*@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
         out.println("Hello Word");
-    }*/
+    }*//*
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,4 +43,4 @@ public class MyServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/index.jsp");
         dispatcher.forward(request, response);
     }
-}
+}*/
