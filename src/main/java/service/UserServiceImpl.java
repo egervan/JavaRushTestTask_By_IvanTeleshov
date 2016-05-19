@@ -11,7 +11,6 @@ import java.util.List;
  * Created by nz on 18.05.16.
  */
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
     public void setUserDao(UserDao userDao) {
