@@ -17,7 +17,6 @@ import java.util.List;
 @Repository
 public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
 
-    @Autowired
     private SessionFactory sessionFactory;
 
     public SessionFactory getSessionFactory() {

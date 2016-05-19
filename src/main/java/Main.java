@@ -11,7 +11,13 @@ public class Main {
     public static void main(String[] args) {
         /*ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] { "applicationContext.xml" }, true);*/
-        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/action-servlet.xml");
+        try {
+            Class.forName("org.hibernate.annotations.common.reflection.java.JavaReflectionManager");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Не нашли JavaReflectionManger");
+            e.printStackTrace();
+        }
+        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("src/main/resources/applicationContext.xml");
         UserDao userDao = (UserDao) context.getBean("userDao");
 
         User user = userDao.getUserById(6);
