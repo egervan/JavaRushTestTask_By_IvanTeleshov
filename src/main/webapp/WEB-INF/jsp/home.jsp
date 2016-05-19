@@ -6,12 +6,27 @@
     <title>Добро пожаловать</title>
 </head>
 <body>
-<h4> Добро пожаловать! </h4>
-<table>
+<div align="center">
+<h2> Добро пожаловать! </h2>
+    <table border="1">
+    <th>id</th>
+    <th>Username</th>
+    <th>age</th>
+    <th>admin</th>
+    <th>createDate</th>
+    <th>Редактировать</th>
+    <th>Удалить</th>
     <c:forEach items="${users}" var="user">
-    <tr>
-        <td>${user}</td>
-    </tr>
+        <tr>
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.age}</td>
+            <td>${user.admin}</td>
+            <td>${user.createDate}</td>
+
+        </tr>
     </c:forEach>
+    </table>
+</div>
 </body>
 </html>
