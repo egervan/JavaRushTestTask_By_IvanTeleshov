@@ -13,13 +13,13 @@
 <jsp:setProperty name="createDate" property="time" value="${user.createDate.time}"/>--%>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" charset="UTF-8">
     <title>Добавление пользователя</title>
 </head>
 <body>
 <div align="center">
     <jsp:useBean id="user" class="objects.User" scope="application"  />
-    <form action="/update" method="get">
+    <form action="/update" method="get" accept-charset="UTF-8">
         <table>
             <tr>
                 <td>ID:</td>

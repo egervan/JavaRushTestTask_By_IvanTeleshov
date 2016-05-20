@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import service.UserService;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Map;
@@ -67,7 +68,18 @@ public class UserController {
     //Этот контроллер вызывается при сохранении изменений в записи пользователя
     @RequestMapping(value = "/update", method = RequestMethod.GET)
     public String updateAction(@ModelAttribute("user") User user) {
-        userService.updateUser(user);
+
+        //Из-за проблем с сохранением руссих имён (user.name) сделал такую фичу:
+        try
+        {
+            user.setName(new String(user.getName().getBytes("ISO8859_1"), "UTF8"));
+        }
+        catch (UnsupportedEncodingException e)
+        {
+        }
+        finally {
+            userService.updateUser(user);
+        }
         return "/home";
     }
 }

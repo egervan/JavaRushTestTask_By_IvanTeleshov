@@ -8,13 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" charset="UTF-8">
     <title>Добавление пользователя</title>
 </head>
 <body>
 <div align="center">
     <jsp:useBean id="userForm" class="objects.User" scope="application" />
-    <form action="/addAction" method="get">
+    <form action="/addAction" method="get" accept-charset="UTF-8">
         <table>
             <tr>
                 <td>Имя:</td>
@@ -26,7 +26,9 @@
             </tr>
             <tr>
                 <td>Администратор:</td>
-                <td><input name="admin" value="${userForm.admin}" /></td>
+                <td>
+                    <input name="admin" value="true" type="checkbox" ${user.admin == 'true' ? 'checked' : ''}/>
+                </td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="Отправить" /></td>
