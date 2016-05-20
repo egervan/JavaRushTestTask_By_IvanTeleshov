@@ -35,13 +35,16 @@ public class UserController {
         return "/home";
     }
 
+    @RequestMapping(value="/add", method = RequestMethod.GET)
+    public String add() {
+        return "WEB-INF/jsp/add.jsp";
+    }
+
     //For add and update user both
-    @RequestMapping(value= "/add", method = RequestMethod.POST)
-    public ModelAndView addUser(@ModelAttribute("user") User user)
+    @RequestMapping(value= "/addAction", method = RequestMethod.POST)
+    public String addAction(@ModelAttribute("user") User user)
     {
-        ModelAndView modelAndView = new ModelAndView("add-user-form ");
-        String message = String.format("User with %d and name %s id successfully  added.", user.getId(), user.getName());
-        modelAndView.addObject("message", message);
+
 
         if(user.getId() == 0){
             //new user, add it
@@ -51,7 +54,7 @@ public class UserController {
             this.userService.updateUser(user);
         }
 
-        return modelAndView;
+        return "/home";
 
     }
 

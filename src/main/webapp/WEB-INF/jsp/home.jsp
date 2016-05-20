@@ -32,6 +32,8 @@
         </tr>
     </c:forEach>
     </table>
+
+    <input type="button" onclick="location.href='/add'" value="Добавить пользователя" >
 </div>
 </body>
 </html>
