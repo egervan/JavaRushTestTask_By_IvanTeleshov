@@ -23,19 +23,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/home.html", method = RequestMethod.GET)
+    @RequestMapping(value="/home", method = RequestMethod.GET)
     public String allUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
         return "WEB-INF/jsp/home.jsp";
     }
 
-    @RequestMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") int id){
-        ModelAndView modelAndView = new ModelAndView("home");
-        userService.deleteUser(id);
-        String message = String.format("User %d was successfully deleted.", id);
-        modelAndView.addObject("message", message);
-        return "WEB-INF/jsp/home.jsp";
+    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
+    public String deleteUser(@PathVariable("id") String id){
+        userService.deleteUser(Integer.parseInt(id));
+        return "/home";
     }
 
     //For add and update user both

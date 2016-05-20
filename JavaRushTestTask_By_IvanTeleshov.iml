@@ -17,8 +17,12 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset3" name="Spring Application Context (2)" removed="false">
-          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/action-servlet.xml</file>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/hello/Application.java</file>
+          <file>file://$MODULE_DIR$/src/main/WEB-INF/spring-servlet.xml</file>
+        </fileset>
+        <fileset id="fileset2" name="applicationContext" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -27,15 +31,21 @@
         <datasource-map>
           <unit-entry name="a.xml" value="7a7e50fd-317c-4f1d-9e0a-fd666f0080e8" />
           <unit-entry name="hibernate.cfg.xml" value="867a3d9b-99ab-4777-99e3-4d4174a167b7" />
-          <unit-entry name="sessionFactory" value="dataSource" />
-          <unit-entry name="src:main:webapp:WEB-INF:hibernate.cfg.xml" />
+          <unit-entry name="sessionFactory" value="cc530931-5873-4b62-9b38-9b955bd36ff7" />
           <unit-entry name="util:SessionFactory.xml" value="7a7e50fd-317c-4f1d-9e0a-fd666f0080e8" />
         </datasource-map>
         <naming-strategy-map>
           <unit-entry name="hibernate.cfg.xml" />
         </naming-strategy-map>
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/META-INF/persistence.xml" />
       </configuration>
     </facet>
   </component>

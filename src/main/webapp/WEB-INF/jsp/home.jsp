@@ -23,7 +23,12 @@
             <td>${user.age}</td>
             <td>${user.admin}</td>
             <td>${user.createDate}</td>
-            <td><input type="button"  onclick="location.href='/delete.html'${user.id}" value="Удалить" ></td>
+            <td><div align="center">
+                <input type="button"  onclick="location.href='/update.html${user.id}'" value="Редактировать" >
+            </div></td>
+            <td><div align="center">
+                <input type="button"  onclick="location.href='/delete/${user.id}'" value="Удалить" >
+            </div></td>
         </tr>
     </c:forEach>
     </table>
