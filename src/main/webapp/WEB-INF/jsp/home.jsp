@@ -17,7 +17,18 @@
     <th>createDate</th>
     <th>Редактировать</th>
     <th>Удалить</th>
-    <c:forEach items="${users}" var="user">
+
+        <c:set var="totalCount" scope="session" value="${users.size()}"/>
+        <c:set var="perPage" scope="session"  value="10"/>
+        <c:set var="pageStart" value="${param.start}"/>
+        <c:if test="${empty pageStart or pageStart < 0}">
+            <c:set var="pageStart" value="0"/>
+        </c:if>
+        <c:if test="${totalCount < pageStart}">
+            <c:set var="pageStart" value="${pageStart - 10}"/>
+        </c:if>
+
+    <c:forEach items="${users}" var="user" begin="${pageStart}" end="${pageStart + perPage - 1}">
         <tr>
             <td>${user.id}</td>
             <td>${user.name}</td>
@@ -33,7 +44,10 @@
         </tr>
     </c:forEach>
     </table>
+    <a href="?start=${pageStart - perPage}"><<</a>${pageStart + 1} - ${pageStart + perPage}
+    <a href="?start=${pageStart + perPage}">>></a>
     <input type="button" onclick="location.href='/add'" value="Добавить пользователя" >
+    <h3>Всего записей ${users.size()}</h3>
 </div>
 </body>
 </html>

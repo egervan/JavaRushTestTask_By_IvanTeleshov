@@ -18,11 +18,11 @@
         <table>
             <tr>
                 <td>Имя:</td>
-                <td><input name="name" value="${userForm.name}" /></td>
+                <td><input name="name" value="" /></td>
             </tr>
             <tr>
                 <td>Возраст:</td>
-                <td><input name="age" value="${userForm.age}" /></td>
+                <td><input name="age" value="" /></td>
             </tr>
             <tr>
                 <td>Администратор:</td>
@@ -31,11 +31,10 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" value="Отправить" /></td>
+                <td align="center" colspan="2"><input type="submit" value="Сохранить" /></td>
             </tr>
         </table>
     </form>
 </div>
-
 </body>
 </html>

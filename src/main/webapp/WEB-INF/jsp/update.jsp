@@ -7,7 +7,7 @@
   Time: 9:49
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"  %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ page import="java.lang.Long" %>
 <%--<jsp:useBean id="createDate" class="java.lang.Long"/>
 <jsp:setProperty name="createDate" property="time" value="${user.createDate.time}"/>--%>
@@ -18,7 +18,7 @@
 </head>
 <body>
 <div align="center">
-    <jsp:useBean id="user" class="objects.User" scope="application"  />
+    <jsp:useBean id="user" class="objects.User" scope="application"/>
     <form action="/update" method="get" accept-charset="UTF-8">
         <table>
             <tr>
@@ -53,7 +53,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" value="Отправить" /></td>
+                <td align="center" colspan="2"><input type="submit" value="Сохранить" /></td>
             </tr>
         </table>
     </form>

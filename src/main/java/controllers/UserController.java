@@ -70,16 +70,17 @@ public class UserController {
     public String updateAction(@ModelAttribute("user") User user) {
 
         //Из-за проблем с сохранением руссих имён (user.name) сделал такую фичу:
-        try
-        {
-            user.setName(new String(user.getName().getBytes("ISO8859_1"), "UTF8"));
-        }
-        catch (UnsupportedEncodingException e)
-        {
-        }
-        finally {
-            userService.updateUser(user);
-        }
+//        try
+//        {
+//            user.setName(new String(user.getName().getBytes("ISO8859_1"), "UTF8"));
+//        }
+//        catch (UnsupportedEncodingException e)
+//        {
+//        }
+//        finally {
+//            userService.updateUser(user);
+//        }
+        userService.updateUser(user);
         return "/home";
     }
 }
