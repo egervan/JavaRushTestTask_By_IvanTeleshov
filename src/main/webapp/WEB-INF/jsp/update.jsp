@@ -13,6 +13,7 @@
 <jsp:setProperty name="createDate" property="time" value="${user.createDate.time}"/>--%>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Добавление пользователя</title>
 </head>
 <body>
@@ -42,7 +43,7 @@
             <tr>
                 <td>Администратор:</td>
                 <td>
-                    <input name="admin" value="${user.admin}" />
+                    <input name="admin" value="true" type="checkbox" ${user.admin == 'true' ? 'checked' : ''}/>
                 </td>
             </tr>
             <tr>

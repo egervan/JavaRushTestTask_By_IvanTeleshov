@@ -40,7 +40,7 @@ public class MyServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/home.jsp");
         dispatcher.forward(request, response);
     }
 }*/
