@@ -12,8 +12,8 @@
 </head>
 <body>
 <div align="center">
-    <jsp:useBean id="user" class="objects.User" scope="session" />
-    <form action="/addAction" method="post">
+    <jsp:useBean id="user" class="objects.User" scope="application" />
+    <form action="/addAction" method="get">
         <table>
             <%--<tr>
                 <td>ID:</td>

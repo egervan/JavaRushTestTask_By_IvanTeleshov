@@ -41,7 +41,7 @@ public class UserController {
     }
 
     //For add and update user both
-    @RequestMapping(value= "/addAction", method = RequestMethod.POST)
+    @RequestMapping(value= "/addAction", method = {RequestMethod.POST, RequestMethod.GET})
     public String addAction(@ModelAttribute("user") User user)
     {
 
