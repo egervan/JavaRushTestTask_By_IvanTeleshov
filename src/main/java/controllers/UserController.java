@@ -44,6 +44,56 @@ public class UserController {
     @RequestMapping(value= "/addAction", method = {RequestMethod.POST, RequestMethod.GET})
     public String addAction(@ModelAttribute("user") User user)
     {
+        if(user.getId() == 0){
+            //new user, add it
+            this.userService.addUser(user);
+        }
+        else{
+            //existing user, call update
+            this.userService.updateUser(user);
+        }
+        return "/home";
+    }
+
+    @RequestMapping(value="/update/{id}", method = RequestMethod.GET)
+    public String update(@PathVariable("id") String id, Model model){
+        model.addAttribute("user", userService.getUserById(Integer.parseInt(id)));
+        //Не понятно пока почему, но если отсюда переходить на "WEB-INF/jsp/update.jsp" вываливается ошибка, т.к. к адресу впереди добавляется update/"WEB-INF/jsp/update.jsp"
+        return "/updatePage";
+    }
+
+    @RequestMapping(value="/updatePage", method = RequestMethod.GET)
+    public String updatePage(Model model){
+        return  "WEB-INF/jsp/update.jsp";
+    }
+
+    @RequestMapping(value="/update", method = RequestMethod.GET)
+    public String updateAction(@ModelAttribute("user") User user)
+    {
+        userService.updateUser(user);
+        return "/home";
+    }
+
+
+
+   /*
+    @RequestMapping("/update/{id}")
+    public ModelAndView updateUser(@PathVariable("id") int id, Model model){
+        ModelAndView modelAndView = new ModelAndView("update-user");
+        model.addAttribute("user", this.userService.getUserById(id));
+        model.addAttribute("listUsers", this.userService.getAllUsers());
+        return modelAndView;
+    }
+  */
+}
+
+
+
+    /*//For add and update user both
+    Рабочий метод добавления пользователей
+    @RequestMapping(value= "/addAction", method = {RequestMethod.POST, RequestMethod.GET})
+    public String addAction(@ModelAttribute("user") User user)
+    {
 
 
         if(user.getId() == 0){
@@ -56,15 +106,4 @@ public class UserController {
 
         return "/home";
 
-    }
-
-    @RequestMapping("/update/{id}")
-    public ModelAndView updateUser(@PathVariable("id") int id, Model model){
-        ModelAndView modelAndView = new ModelAndView("update-user");
-        model.addAttribute("user", this.userService.getUserById(id));
-        model.addAttribute("listUsers", this.userService.getAllUsers());
-        return modelAndView;
-    }
-
-}
-
+    }*/
