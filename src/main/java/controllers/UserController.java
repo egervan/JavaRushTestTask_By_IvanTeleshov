@@ -25,87 +25,50 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value="/home", method = RequestMethod.GET)
+    //Этот контроллер открывает главную страницу - home, на которой отображаются все пользователи
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String allUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
         return "WEB-INF/jsp/home.jsp";
     }
-
-    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-    public String deleteUser(@PathVariable("id") String id){
+    //Этот контроллер удаляет выбранную запись и показывает обновлённый список пользователей
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteUser(@PathVariable("id") String id) {
         userService.deleteUser(Integer.parseInt(id));
         return "/home";
     }
-
-    @RequestMapping(value="/add", method = RequestMethod.GET)
+    //Этот контроллер открывает страницу добавления нового пользователя
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add() {
         return "WEB-INF/jsp/add.jsp";
     }
 
-    //For add and update user both
-    @RequestMapping(value= "/addAction", method = {RequestMethod.POST, RequestMethod.GET})
-    public String addAction(@ModelAttribute("user") User user)
-    {
-        if(user.getId() == 0){
-            //new user, add it
-            this.userService.addUser(user);
-        }
-        else{
-            //existing user, call update
-            this.userService.updateUser(user);
-        }
+    //Этот контроллер вызвается при сохранении нового пользователя
+    @RequestMapping(value = "/addAction", method = {RequestMethod.POST, RequestMethod.GET})
+    public String addAction(@ModelAttribute("user") User user) {
+        this.userService.addUser(user);
         return "/home";
     }
 
-    @RequestMapping(value="/update/{id}", method = RequestMethod.GET)
-    public String update(@PathVariable("id") String id, Model model){
+    //Этот контроллер запрашивает запись пользователя из БД и отправляет её для редактирования в контроллер updatePage
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    public String update(@PathVariable("id") String id, Model model) {
         model.addAttribute("user", userService.getUserById(Integer.parseInt(id)));
         //Не понятно пока почему, но если отсюда переходить на "WEB-INF/jsp/update.jsp" вываливается ошибка, т.к. к адресу впереди добавляется update/"WEB-INF/jsp/update.jsp"
         return "/updatePage";
     }
 
-    @RequestMapping(value="/updatePage", method = RequestMethod.GET)
-    public String updatePage(Model model){
-        return  "WEB-INF/jsp/update.jsp";
+    //Этот контроллер открывает страницу редактирования записи пользователя
+    @RequestMapping(value = "/updatePage", method = RequestMethod.GET)
+    public String updatePage(Model model) {
+        return "WEB-INF/jsp/update.jsp";
     }
 
-    @RequestMapping(value="/update", method = RequestMethod.GET)
-    public String updateAction(@ModelAttribute("user") User user)
-    {
+    //Этот контроллер вызывается при сохранении изменений в записи пользователя
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public String updateAction(@ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "/home";
     }
-
-
-
-   /*
-    @RequestMapping("/update/{id}")
-    public ModelAndView updateUser(@PathVariable("id") int id, Model model){
-        ModelAndView modelAndView = new ModelAndView("update-user");
-        model.addAttribute("user", this.userService.getUserById(id));
-        model.addAttribute("listUsers", this.userService.getAllUsers());
-        return modelAndView;
-    }
-  */
 }
 
-
-
-    /*//For add and update user both
-    Рабочий метод добавления пользователей
-    @RequestMapping(value= "/addAction", method = {RequestMethod.POST, RequestMethod.GET})
-    public String addAction(@ModelAttribute("user") User user)
-    {
-
-
-        if(user.getId() == 0){
-            //new user, add it
-            this.userService.addUser(user);
-        }else{
-            //existing user, call update
-            this.userService.updateUser(user);
-        }
-
-        return "/home";
-
-    }*/

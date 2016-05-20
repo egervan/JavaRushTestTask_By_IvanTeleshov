@@ -18,9 +18,6 @@
 <body>
 <div align="center">
     <jsp:useBean id="user" class="objects.User" scope="application"  />
-  <%--  <jsp:setProperty name="user" property="id" value="${user.id}" />
-    <jsp:setProperty name="user" property="createDate" value="${user.createDate}" />--%>
-
     <form action="/update" method="get">
         <table>
             <tr>
@@ -33,47 +30,25 @@
             <tr>
                 <td>Имя:</td>
                 <td>
-<%--
-                    <jsp:setProperty name="userForm" property="name">
---%>
                     <input name="name" value="${user.name}" />
-<%--
-                    </jsp:setProperty>
---%>
                 </td>
             </tr>
             <tr>
                 <td>Возраст:</td>
                 <td>
-<%--
-                    <jsp:setProperty name="userForm" property="age">
---%>
                     <input name="age" value="${user.age}" />
-<%--
-                    </jsp:setProperty>
---%>
                 </td>
             </tr>
             <tr>
                 <td>Администратор:</td>
                 <td>
-<%--
-                    <jsp:setProperty name="userForm" property="admin">
---%>
                     <input name="admin" value="${user.admin}" />
-<%--
-                    </jsp:setProperty>
---%>
                 </td>
             </tr>
             <tr>
                 <td>Дата создания:</td>
                 <td>
                     ${user.createDate}
-                     <%--<input name="createDate" value="${user.createDate}" type="" hidden/>--%>
-                       <%-- <c:if test="${user.createDate != null}">
-                            <form:hidden path="createDate" value="${user.createDate}" id="createDate"/>
-                        </c:if>--%>
                 </td>
             </tr>
             <tr>
