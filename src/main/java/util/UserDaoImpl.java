@@ -72,7 +72,6 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
         try (Session session = sessionFactory.openSession())
         {
             transaction = session.beginTransaction();
-          //  session.load(User.class, new Integer(id));
             session.update(user);
             session.getTransaction().commit();
         }
@@ -111,11 +110,4 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
         }
         return null;
     }
-
-    /*@Override
-    protected HibernateTemplate createHibernateTemplate(SessionFactory sessionFactory) {
-        HibernateTemplate result = super.createHibernateTemplate(sessionFactory);
-        result.setAllowCreate(false);
-        return result;
-    }*/
 }

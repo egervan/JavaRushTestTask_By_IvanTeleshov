@@ -12,28 +12,61 @@
 </head>
 <body>
 <div align="center">
-    <jsp:useBean id="userForm" class="objects.User" scope="application"  />
-    <form action="/addAction" method="get">
+    <jsp:useBean id="user" class="objects.User" scope="application"  />
+  <%--  <jsp:setProperty name="user" property="id" value="${user.id}" />
+    <jsp:setProperty name="user" property="createDate" value="${user.createDate}" />--%>
+
+    <form action="/update" method="get">
         <table>
             <tr>
                 <td>ID:</td>
-                <td><input name="id" value="${user.id}" readonly/></td>
+                <td>
+                    ${user.id}
+                    <input name="id" value="${user.id}" hidden />
+                </td>
             </tr>
             <tr>
                 <td>Имя:</td>
-                <td><input name="name" value="${user.name}" /></td>
+                <td>
+<%--
+                    <jsp:setProperty name="userForm" property="name">
+--%>
+                    <input name="name" value="${user.name}" />
+<%--
+                    </jsp:setProperty>
+--%>
+                </td>
             </tr>
             <tr>
                 <td>Возраст:</td>
-                <td><input name="age" value="${user.age}" /></td>
+                <td>
+<%--
+                    <jsp:setProperty name="userForm" property="age">
+--%>
+                    <input name="age" value="${user.age}" />
+<%--
+                    </jsp:setProperty>
+--%>
+                </td>
             </tr>
             <tr>
                 <td>Администратор:</td>
-                <td><input name="admin" value="${user.admin}" /></td>
+                <td>
+<%--
+                    <jsp:setProperty name="userForm" property="admin">
+--%>
+                    <input name="admin" value="${user.admin}" />
+<%--
+                    </jsp:setProperty>
+--%>
+                </td>
             </tr>
             <tr>
-                <td>Администратор:</td>
-                <td><input name="admin" value="${user.createDate}" readonly/></td>
+                <td>Дата создания:</td>
+                <td>
+                    ${user.createDate}
+                     <input name="createdDate" value="${user.createDate}" hidden/>
+                </td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="Отправить" /></td>
