@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: nz
@@ -6,6 +8,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"  %>
+<%@ page import="java.lang.Long" %>
+<%--<jsp:useBean id="createDate" class="java.lang.Long"/>
+<jsp:setProperty name="createDate" property="time" value="${user.createDate.time}"/>--%>
 <html>
 <head>
     <title>Добавление пользователя</title>
@@ -65,7 +70,10 @@
                 <td>Дата создания:</td>
                 <td>
                     ${user.createDate}
-                     <input name="createdDate" value="${user.createDate}" hidden/>
+                     <%--<input name="createDate" value="${user.createDate}" type="" hidden/>--%>
+                       <%-- <c:if test="${user.createDate != null}">
+                            <form:hidden path="createDate" value="${user.createDate}" id="createDate"/>
+                        </c:if>--%>
                 </td>
             </tr>
             <tr>
