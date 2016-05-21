@@ -23,7 +23,7 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="userDao" class="util.UserDaoImpl">
+    <bean id="userDao" class="util.dao.UserDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     <context:component-scan base-package="controllers"/>
@@ -78,7 +78,7 @@
                 Could not autowire. No beans of 'UserService' type found.&ndash;&gt;
 
 
-            <bean id="userDao" class="util.UserDaoImpl">
+            <bean id="userDao" class="util.dao.UserDaoImpl">
                 <property name="sessionFactory" ref="sessionFactory" />
             </bean>
 
@@ -107,7 +107,7 @@
 
             <aop:config>
                 <aop:pointcut id="myPointcut"
-                              expression="execution(* util.UserDaoImpl*.*(..))" />
+                              expression="execution(* util.dao.UserDaoImpl*.*(..))" />
                 <aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
             </aop:config>
 

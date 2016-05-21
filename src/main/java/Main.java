@@ -1,8 +1,7 @@
 import objects.User;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import service.UserService;
-import service.UserServiceImpl;
-import util.UserDao;
+import util.dao.UserDao;
 
 /**
  * Created by Jager on 18.05.2016.
