@@ -35,7 +35,9 @@
             <td>${user.name}</td>
             <td>${user.age}</td>
             <td>
-                <input name="admin" value="true" type="checkbox" onclick="return false" readonly ${user.admin == 'true' ? 'checked' : ''}/>
+               <div align="center">
+                   <input name="admin" value="true" type="checkbox" onclick="return false" readonly ${user.admin == 'true' ? 'checked' : ''}/>
+               </div>
             </td>
             <td>${user.createDate}</td>
             <td><div align="center">

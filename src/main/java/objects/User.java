@@ -56,7 +56,8 @@ public class User {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        //На случай если пользователь вдруг ввёл случайно отрицательное число - возраст не может быть отрицательным
+        this.age = Math.abs(age);
     }
 
     @Basic

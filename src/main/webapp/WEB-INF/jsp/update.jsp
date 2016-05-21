@@ -37,7 +37,7 @@
             <tr>
                 <td>Возраст:</td>
                 <td>
-                    <input name="age" value="${user.age}" />
+                    <input name="age" value="${user.age}" type="number" />
                 </td>
             </tr>
             <tr>

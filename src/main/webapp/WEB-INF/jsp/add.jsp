@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td>Возраст:</td>
-                <td><input name="age" value="" /></td>
+                <td><input name="age" value="" type="number"/></td>
             </tr>
             <tr>
                 <td>Администратор:</td>
