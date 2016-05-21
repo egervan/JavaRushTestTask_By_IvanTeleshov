@@ -27,6 +27,7 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
         this.sessionFactory = sessionFactory;
     }
 
+    @Override
     public void addUser(User user)
     {
         Transaction transaction = null;
@@ -45,6 +46,7 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
         }
     }
 
+    @Override
     public void deleteUser(int id)
     {
         Transaction transaction = null;
@@ -64,6 +66,7 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
         }
     }
 
+    @Override
     public void updateUser(User user)
     {
         int id = user.getId();
@@ -84,6 +87,7 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
         }
     }
 
+    @Override
     public List<User> getAllUsers()
     {
         List<User> allUsers = new ArrayList<>();
@@ -98,6 +102,7 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
         return allUsers;
     }
 
+    @Override
     public User getUserById(int id)
     {
         try (Session session = sessionFactory.openSession())
@@ -109,5 +114,19 @@ public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public List<User> getUsersByName(String requestName) {
+        List<User> users = new ArrayList<>();
+        try (Session session = sessionFactory.openSession())
+        {
+            users.addAll(session.createQuery("from User where name = :requestName").setString("requestName", requestName).list());
+        }
+        catch (RuntimeException e)
+        {
+            e.printStackTrace();
+        }
+        return users;
     }
 }

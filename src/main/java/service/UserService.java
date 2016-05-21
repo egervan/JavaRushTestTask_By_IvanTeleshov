@@ -13,5 +13,6 @@ public interface UserService {
     void deleteUser(int id);
     void updateUser(User user);
     List<User> getAllUsers();
+    List<User> getUsersByName(String requestName);
     User getUserById(int id);
 }

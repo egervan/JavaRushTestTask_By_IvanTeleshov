@@ -10,6 +10,14 @@
 <body>
 <div align="center">
 <h2> Добро пожаловать! </h2>
+
+    <form name="searchForm" action="/search" method="get" >
+        <td align="center" colspan="2">
+          Имя: <input type="text" id="requestName" name="requestName">
+        <input type="submit" value="Поиск" /></td>
+    </form>
+
+
     <table border="1">
     <th>id</th>
     <th>Username</th>
@@ -49,8 +57,9 @@
         </tr>
     </c:forEach>
     </table>
-    <a href="?start=${pageStart - perPage}"><<</a>${pageStart + 1} - ${pageStart + perPage}
-    <a href="?start=${pageStart + perPage}">>></a>
+    <a href="?start=${pageStart - perPage}">${pageStart > 0 ? '<<' : ''}</a>${pageStart + 1} - ${pageStart + perPage}
+    <a href="?start=${pageStart + perPage}">${pageStart + perPage < users.size() ? '>>' : ''}</a>
+    <br>
     <input type="button" onclick="location.href='/add'" value="Добавить пользователя" >
     <h3>Всего записей ${users.size()}</h3>
 </div>
