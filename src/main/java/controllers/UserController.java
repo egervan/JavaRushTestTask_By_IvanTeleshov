@@ -54,7 +54,7 @@ public class UserController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteUser(@PathVariable("id") String id) {
         userService.deleteUser(Integer.parseInt(id));
-        return "/home";
+        return "redirect:/home";
     }
     //Этот контроллер открывает страницу добавления нового пользователя
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -66,7 +66,7 @@ public class UserController {
     @RequestMapping(value = "/addAction", method = {RequestMethod.POST, RequestMethod.GET})
     public String addAction(@ModelAttribute("user") User user) {
         this.userService.addUser(user);
-        return "/home";
+        return "redirect:/home";
     }
 
     //Этот контроллер запрашивает запись пользователя из БД и отправляет её для редактирования в контроллер updatePage
@@ -87,7 +87,8 @@ public class UserController {
     @RequestMapping(value = "/update", method = RequestMethod.GET)
     public String updateAction(@ModelAttribute("user") User user) {
         userService.updateUser(user);
-        return "/home";
+        return "redirect:/home";
+
     }
 }
 
