@@ -14,7 +14,7 @@ import java.util.List;
  * Created by nz on 17.05.16.
  */
 @Repository
-public class UserDaoImpl /*extends HibernateDaoSupport */implements UserDao {
+public class UserDaoImpl implements UserDao {
 
     private SessionFactory sessionFactory;
 
