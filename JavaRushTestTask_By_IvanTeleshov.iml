@@ -16,20 +16,13 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/hello/Application.java</file>
-          <file>file://$MODULE_DIR$/src/main/WEB-INF/spring-servlet.xml</file>
-        </fileset>
-        <fileset id="fileset2" name="applicationContext" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
-        </fileset>
-      </configuration>
+      <configuration />
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="7a7e50fd-317c-4f1d-9e0a-fd666f0080e8" />
+          <unit-entry name="sessionFactory" value="dataSource" />
           <unit-entry name="src:main:webapp:WEB-INF:hibernate.cfg.xml" value="867a3d9b-99ab-4777-99e3-4d4174a167b7" />
           <unit-entry name="util:SessionFactory.xml" value="7a7e50fd-317c-4f1d-9e0a-fd666f0080e8" />
         </datasource-map>
