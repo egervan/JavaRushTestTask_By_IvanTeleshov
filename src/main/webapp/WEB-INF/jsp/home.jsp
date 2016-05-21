@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" isELIgnored="false" %>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,10 +23,10 @@
         <c:set var="perPage" scope="session"  value="10"/>
         <c:set var="pageStart" value="${param.start}"/>
         <c:if test="${empty pageStart or pageStart < 0}">
-            <c:set var="pageStart" value="0"/>
+           <c:set var="pageStart" value="0"/>
         </c:if>
         <c:if test="${totalCount < pageStart}">
-            <c:set var="pageStart" value="${pageStart - 10}"/>
+           <c:set var="pageStart" value="${pageStart - 10}"/>
         </c:if>
 
     <c:forEach items="${users}" var="user" begin="${pageStart}" end="${pageStart + perPage - 1}">
@@ -33,7 +34,9 @@
             <td>${user.id}</td>
             <td>${user.name}</td>
             <td>${user.age}</td>
-            <td>${user.admin}</td>
+            <td>
+                <input name="admin" value="true" type="checkbox" onclick="return false" readonly ${user.admin == 'true' ? 'checked' : ''}/>
+            </td>
             <td>${user.createDate}</td>
             <td><div align="center">
                 <input type="button"  onclick="location.href='/update/${user.id}'" value="Редактировать" >
