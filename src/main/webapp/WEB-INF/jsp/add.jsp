@@ -9,10 +9,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" charset="UTF-8">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <title>Добавление пользователя</title>
 </head>
 <body>
 <div align="center">
+    <h2>Добавление нового пользователя</h2>
     <jsp:useBean id="userForm" class="objects.User" scope="application" />
     <form action="/addAction" method="get" accept-charset="UTF-8">
         <table>

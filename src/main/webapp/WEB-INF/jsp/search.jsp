@@ -5,10 +5,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Добро пожаловать</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <title>Результат поиска</title>
 </head>
 <body>
-<div align="center">
+<div align="center" class="container">
     <h2> Результат поиска: </h2>
 
     <form name="searchForm" action="/search" method="get" >
@@ -17,14 +18,18 @@
             <input type="submit" value="Поиск" /></td>
     </form>
 
-    <table border="1">
-        <th>id</th>
-        <th>Username</th>
-        <th>age</th>
-        <th>admin</th>
-        <th>createDate</th>
-        <th>Редактировать</th>
-        <th>Удалить</th>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Имя</th>
+            <th>Возраст</th>
+            <th>Администратор</th>
+            <th>Дата создания</th>
+            <th>Редактировать</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
 
         <c:set var="totalCount" scope="session" value="${users.size()}"/>
         <c:set var="perPage" scope="session"  value="10"/>
@@ -40,19 +45,17 @@
             <tr>
                 <td>${user.id}</td>
                 <td>${user.name}</td>
-                <td>${user.age}</td>
+                <td> ${user.age}</td>
                 <td>
-                    <div align="center">
-                        <input name="admin" value="true" type="checkbox" onclick="return false" readonly ${user.admin == 'true' ? 'checked' : ''}/>
-                    </div>
+                    <input name="admin" value="true" align="center" type="checkbox" onclick="return false" readonly ${user.admin == 'true' ? 'checked' : ''}/>
                 </td>
                 <td>${user.createDate}</td>
-                <td><div align="center">
+                <td>
                     <input type="button"  onclick="location.href='/update/${user.id}'" value="Редактировать" >
-                </div></td>
-                <td><div align="center">
+                </td>
+                <td>
                     <input type="button"  onclick="location.href='/delete/${user.id}'" value="Удалить" >
-                </div></td>
+                </td>
             </tr>
         </c:forEach>
     </table>

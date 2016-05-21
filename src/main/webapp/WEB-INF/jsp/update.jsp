@@ -9,15 +9,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ page import="java.lang.Long" %>
-<%--<jsp:useBean id="createDate" class="java.lang.Long"/>
-<jsp:setProperty name="createDate" property="time" value="${user.createDate.time}"/>--%>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" charset="UTF-8">
-    <title>Добавление пользователя</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <title>Редактирование пользователя</title>
 </head>
 <body>
 <div align="center">
+    <h2>Редактирование пользователя</h2>
     <jsp:useBean id="user" class="objects.User" scope="application"/>
     <form action="/update" method="get" accept-charset="UTF-8">
         <table>

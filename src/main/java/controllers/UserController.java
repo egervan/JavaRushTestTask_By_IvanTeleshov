@@ -28,6 +28,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String welcomePage() {
+        return "redirect:/home";
+    }
+
     //Этот контроллер открывает главную страницу - home, на которой отображаются все пользователи
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String allUsers(Model model) {
