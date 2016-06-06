@@ -59,8 +59,8 @@
             </tr>
         </c:forEach>
     </table>
-    <a href="?start=${pageStart - perPage}">${pageStart > 0 ? '<<' : ''}</a>${pageStart + 1} - ${pageStart + perPage}
-    <a href="?start=${pageStart + perPage}">${pageStart + perPage < users.size() ? '>>' : ''}</a>
+    <a href="?requestName=${param.requestName}&start=${pageStart - perPage}">${pageStart > 0 ? '<<' : ''}</a>${pageStart + 1} - ${pageStart + perPage}
+    <a href="?requestName=${param.requestName}&start=${pageStart + perPage}">${pageStart + perPage < users.size() ? '>>' : ''}</a>
     <br>
     <input type="button" onclick="location.href='/add'" value="Добавить пользователя" >
     <h3>Всего записей ${users.size()}</h3>
