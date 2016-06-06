@@ -2,22 +2,10 @@ package controllers;
 
 import objects.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import service.UserService;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by nz on 19.05.16.
@@ -40,15 +28,9 @@ public class UserController {
         return "WEB-INF/jsp/home.jsp";
     }
 
- /*   @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String search(Model model) {
-        return "WEB-INF/jsp/search.jsp";
-    }*/
-
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String getUsersByName(@RequestParam("requestName") String requestName, Model model)
     {
-        System.out.println(requestName);
         model.addAttribute("users", userService.getUsersByName(requestName));
 
         return "WEB-INF/jsp/search.jsp";
