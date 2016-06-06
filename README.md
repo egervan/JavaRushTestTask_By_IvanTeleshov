@@ -4,7 +4,7 @@
 Для запуска необходимо запустить "Reimport All Maven projects" 
  - т.е. обновить зависимости Maven,
 После этого в Lifecycle выбрать clean и compile	и запустить "Run maven Build".
-Я использовал Tomcat 7.0.69
+Я использовал Tomcat 7.0.69. При запуске в Tomcat из intellij IDEA, поле Application Context оставить пустым.
 
 Была проблема с кодировкой. Решил добавлением в conf/server.xml в Tomcat строки URIEncoding="UTF-8"
 В итоге вот что получилось:
