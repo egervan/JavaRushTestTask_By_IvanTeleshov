@@ -1,10 +1,9 @@
 # JavaRushTestTask_By_IvanTeleshov
 Тестовое задание для участия в реальном проекте JavaRush
 
-Для запуска необходимо запустить "Reimport All Maven projects" 
- - т.е. обновить зависимости Maven,
-После этого в Lifecycle запустить package.
-Я использовал Tomcat 7.0.69. При запуске в Tomcat из intellij IDEA, поле Application Context оставить пустым.
+Для запуска необходимо
+в Lifecycle запустить package.
+Для запуска использовал Tomcat 7.0.69. При запуске в Tomcat из intellij IDEA, поле Application Context оставить пустым.
 Если возникнут вопросы по запуску, здесь отличная статья по деплою из intellij idea: http://devcolibri.com/4249
 
 Была проблема с кодировкой. Решил добавлением в conf/server.xml в Tomcat строки URIEncoding="UTF-8"
